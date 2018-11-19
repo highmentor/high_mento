@@ -1,0 +1,10 @@
+{%extends 'questions/base.html'%}
+
+{%block body%}
+
+    {% for question in question_list %}
+    <h1>{{question.title}}</h1>
+    <a href="{% url 'questions:detail' pk=question.pk %}">detail</a>
+    <a href="{% url 'questions:delete' pk=question.pk %}">delete</a>
+    {% endfor%}
+{% endblock %}
