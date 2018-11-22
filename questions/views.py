@@ -3,7 +3,7 @@ from django.views.generic import (View,TemplateView, DetailView,CreateView,ListV
 ##새로추가
 from django.http import HttpResponse ## 새로추가
 
-from .models import Question
+from .models import Question, Answer
 from django.urls import reverse_lazy
 
 # Create your views here.
@@ -31,3 +31,25 @@ class Update(UpdateView):
 class Detail(DetailView):
     model = Question
     template_name = 'questions/question_detail.html'
+    
+    
+class Answer_Create(CreateView):
+    model = Answer
+    fields=('title','content')
+    
+    def form_valid(self,form):
+        self.object = form.save(commit=False)
+        # self.object.user = self.request.user
+        self.object.question_id = self.kwargs.get('question_id')
+        # self.object.question = Question.objects.get(pk=self.kwargs.get('question_id'))
+        self.object.save()
+        
+        return super().form_valid(form)
+        
+class Answer_Update(UpdateView):
+    model = Answer
+    fields=('title','content',)
+
+class Answer_Delete(DeleteView):
+    model = Answer
+    success_url = reverse_lazy('question:list')

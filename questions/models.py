@@ -24,10 +24,10 @@ class Question(models.Model):
         return reverse('questions:list')
         
         
-class Answer_comment(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,default=1 )
+class Answer(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1 )
+    title = models.CharField(max_length=100)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
-
     content = models.CharField(max_length=100)
     
     def __str__(self):
