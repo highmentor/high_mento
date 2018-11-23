@@ -6,5 +6,6 @@
     <h1>{{question.title}}</h1>
     <a href="{% url 'questions:detail' pk=question.pk %}">detail</a>
     <a href="{% url 'questions:delete' pk=question.pk %}">delete</a>
+    <a href="{% url 'questions:edit' pk=question.pk %}">edit</a>
     {% endfor%}
 {% endblock %}
