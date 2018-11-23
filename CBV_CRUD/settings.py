@@ -25,9 +25,9 @@ SECRET_KEY = '@)=*oata7jii*rscr3(046^(%)1$&&@1)*r%ph9g5u4vjz9ylu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['high-mentro-bicsu.c9users.io']
-
-
+ALLOWED_HOSTS = ['ximz-ethanzzzzz.c9users.io',
+                 'huilim-huilim.c9users.io',
+                 'high-mentro-bicsu.c9users.io']
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,9 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'questions',
+    'uni_infor',
     'accounts',
     'bootstrap4',
-    
 ]
 
 MIDDLEWARE = [
