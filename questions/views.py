@@ -6,6 +6,8 @@ from django.http import HttpResponse ## 새로추가
 from .models import Question, Answer
 from django.urls import reverse_lazy
 
+from .forms import AnswerForm
+
 # Create your views here.
 
 def index(request):
@@ -32,6 +34,10 @@ class Detail(DetailView):
     model = Question
     template_name = 'questions/question_detail.html'
     
+    def get_context_data(self,**kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = AnswerForm()
+        return context
     
 class Answer_Create(CreateView):
     model = Answer

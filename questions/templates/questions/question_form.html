@@ -1,11 +1,12 @@
 {% extends 'questions/base.html' %}
 
 {% block body %}
-<form action='{% url "questions:create" %}' method='POST'>
+<form  method='POST'>
     
     {% csrf_token %}
     {{form.as_p}}
     <input type="submit" value="Submit"/>
 </form>
+
 
 {% endblock %}

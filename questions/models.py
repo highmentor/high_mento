@@ -32,3 +32,6 @@ class Answer(models.Model):
     
     def __str__(self):
         return self.content
+    
+    def get_absolute_url(self): 
+        return reverse('questions:detail',kwargs={'pk':self.question.pk})
