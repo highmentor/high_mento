@@ -5,4 +5,17 @@
 <h4>전공분야 : {{question.major}}</h2>
 <h2>내용 : {{question.content}}</h2>
 
+
+<form action="{% url 'questions:answer_create' question.id %}" method="post">
+    {%csrf_token%}
+    {{form.as_p}}
+    <input type="submit">    
+</form>
+
+
+{%for answer in question.answer_set.all%}
+    <h3>{{answer.title}}</h3>
+    <p>{{answer.content}}</p>
+{%endfor%}
+
 {% endblock %}

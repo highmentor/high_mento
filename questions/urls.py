@@ -9,7 +9,7 @@ urlpatterns = [
     path('new/', views.Create.as_view(), name='create'),
     path('<int:pk>/', views.Detail.as_view(), name='detail'),
     path('<int:pk>/delete/', views.Delete.as_view(), name='delete'),
-    path('<int:pk>/edit/', views.Update.as_view()),
+    path('<int:pk>/edit/', views.Update.as_view(), name='edit'),
     
     path('<int:question_id>/answer_create/', views.Answer_Create.as_view(), name='answer_create'),
     path('<int:question_id>/answer_delete/', views.Answer_Delete.as_view(), name='answer_delete'), 
