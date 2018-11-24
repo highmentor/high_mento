@@ -1,6 +1,7 @@
-{% extends 'questions/base.html' %}
+{%extends 'base.html'%}
+{% load bootstrap4 %}
 
-{% block body %}
+{% block content %}
 <form  method='POST'>
     
     {% csrf_token %}
