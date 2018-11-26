@@ -28,6 +28,9 @@
           <li class="nav-item">
             <a class="nav-link" href='{% url 'universities:list' %}'>University</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href='{% url 'majors:list' %}'>Majors</a>
+          </li>
           {% if user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a>

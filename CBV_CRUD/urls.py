@@ -25,4 +25,5 @@ urlpatterns = [
     path('uni_infor/',include('uni_infor.urls')),
     path('questions/', include('questions.urls')),
     path('accounts/', include('accounts.urls')),
+    path('majors/', include('majors.urls')),
 ]
