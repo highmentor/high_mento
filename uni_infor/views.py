@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, resolve_url
-from .models import University, University_review
+from .models import University, University_review, University_major_data
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.urls import reverse
 from .forms import PostForm
@@ -14,19 +14,15 @@ class University_detail(DetailView):
     
 class University_create(CreateView):
     model = University_review
-    fields = ['major']
+    fields = ['major','content']
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['university'] = University.objects.get(pk=self.kwargs.get('university_id'))
         return context
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['university'] = University.objects.get(pk=self.kwargs.get('university_id'))
-        return context
-        
     def form_valid(self, form):
         form.instance.university = University.objects.get(pk=self.kwargs.get('university_id'))
         return super().form_valid(form)
-            
+
+    
