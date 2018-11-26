@@ -27,7 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['ximz-ethanzzzzz.c9users.io',
                  'huilim-huilim.c9users.io',
-                 'high-mentro-bicsu.c9users.io']
+                 'high-mentro-bicsu.c9users.io',
+                 '*']
 # Application definition
 
 INSTALLED_APPS = [

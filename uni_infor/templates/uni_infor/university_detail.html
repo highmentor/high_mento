@@ -5,8 +5,13 @@
 <div>
     <p>{{ university.uni_id }} </p>
     <p>{{ university.uni_intro }} </p>
-    <a href="{% url 'universities:create' pk=university.pk %}">전공평가하기</a>
+    <a href="{% url 'universities:create' university_id=university.pk %}">전공평가하기</a>
+    <br>
     
-    
+    {%for review in university.university_review_set.all%}
+        {{ review.major}} 
+        <br>
+    {% endfor %}
+
     
 </div>

@@ -1,0 +1,15 @@
+{%extends 'base.html'%}
+{% load bootstrap4 %}
+
+{% block content %}
+<form  method='POST'>
+    
+    {% csrf_token %}
+    <p>{{ university.uni_id }}</p>
+    <br>
+    {{form.as_p}}
+    <input type="submit" value="Submit"/>
+</form>
+
+
+{% endblock %}

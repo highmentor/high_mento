@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
@@ -6,6 +7,17 @@ class University(models.Model):
     uni_id = models.TextField()
     uni_intro = models.TextField()
     
+    def __str__(self):
+        return self.uni_id
+    
 class University_review(models.Model):
     university = models.ForeignKey(University,on_delete=models.CASCADE)
     major = models.TextField()
+    
+    def get_absolute_url(self):
+        return reverse('universities:detail', kwargs={'pk':self.university.pk})
+        
+class University_major_data(models.Model):
+    university = models.ForeignKey(University,on_delete=models.CASCADE)
+    major = models.TextField()
+    # 크롤링
