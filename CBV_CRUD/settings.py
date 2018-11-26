@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'uni_infor',
     'accounts',
     'bootstrap4',
+    'majors'
 ]
 
 MIDDLEWARE = [
