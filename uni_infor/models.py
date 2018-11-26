@@ -9,15 +9,21 @@ class University(models.Model):
     
     def __str__(self):
         return self.uni_id
-    
-class University_review(models.Model):
-    university = models.ForeignKey(University,on_delete=models.CASCADE)
-    major = models.TextField()
-    
-    def get_absolute_url(self):
-        return reverse('universities:detail', kwargs={'pk':self.university.pk})
         
+
 class University_major_data(models.Model):
     university = models.ForeignKey(University,on_delete=models.CASCADE)
     major = models.TextField()
     # 크롤링
+    def __str__(self):
+        return self.major
+    
+    
+class University_review(models.Model):
+    university = models.ForeignKey(University,on_delete=models.CASCADE)
+    major = models.ForeignKey(University_major_data,on_delete=models.CASCADE)
+    content = models.TextField()
+    
+    def get_absolute_url(self):
+        return reverse('universities:detail', kwargs={'pk':self.university.pk})
+    
