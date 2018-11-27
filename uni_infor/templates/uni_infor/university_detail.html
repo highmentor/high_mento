@@ -2,7 +2,8 @@
 
 
 
-<div>
+<div>   
+    <p>평점: {{ rating_avg }}</p>
     <p>{{ university.uni_id }} </p>
     <p>{{ university.uni_intro }} </p>
     <a href="{% url 'universities:create' university_id=university.pk %}">전공평가하기</a>
