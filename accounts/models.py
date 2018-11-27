@@ -1,8 +1,10 @@
 from django.db import models
 from django.contrib import auth
+from django import forms
+from django.contrib.auth.models import User
 
 # Create your models here.
-class User(auth.models.User, auth.models.PermissionsMixin):
-    
-    def __str__(self):
-        return "@{}".format(self.username)
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password']
