@@ -44,7 +44,9 @@ INSTALLED_APPS = [
     'accounts',
     'bootstrap4',
     'majors'
+    'djangoratings',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
