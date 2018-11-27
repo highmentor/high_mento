@@ -1,0 +1,47 @@
+body {display: flex;align-items: center;justify-content: left;height: 10;}
+
+.box {width: 200px;}
+
+.rating {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 10px;
+  border: 1px solid;
+  box-sizing: border-box;
+  background: linear-gradient(to right, #f00, #ff0, #0f0);
+  
+  input {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+
+    white-space: nowrap;
+
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+  
+  label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 50px;
+    height: 40px;
+    transition: 0.5s;
+    background-color: #fff;
+    font-size: 20px;
+    border-right: 1px solid;
+  }
+    
+  input:hover ~ label,
+  input:checked ~ label{
+    background-color: transparent;
+  }
+}
