@@ -30,6 +30,7 @@ ALLOWED_HOSTS = ['ximz-ethanzzzzz.c9users.io',
                  'high-mentro-bicsu.c9users.io',
                  'high-mentor-jackpot2.c9users.io',
                  ]
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -43,8 +44,7 @@ INSTALLED_APPS = [
     'uni_infor',
     'accounts',
     'bootstrap4',
-    'majors'
-    'djangoratings',
+    'majors',
 ]
 
 

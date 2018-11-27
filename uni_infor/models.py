@@ -1,7 +1,5 @@
 from django.db import models
-from djangoratings.fields import RatingField
-
-
+from django.urls import reverse
 
 # Create your models here.
 
@@ -12,8 +10,8 @@ class University(models.Model):
 class University_review(models.Model):
     university = models.ForeignKey(University,on_delete=models.CASCADE)
     major = models.TextField()
+    rating = models.IntegerField()
     
-class MyModel(models.Model):
-    rating = RatingField(range=5) # 5 possible rating values, 1-5
-    
+    def get_absolute_url(self):
+        return reverse('universities:detail', kwargs={'pk':self.university.pk})
     
