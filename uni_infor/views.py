@@ -22,7 +22,7 @@ class University_detail(DetailView):
 class University_create(CreateView):
     model = University_review
     form_class = ReviewForm
-    # fields = ['university','major']
+    # fields = ['major','content']
     
     def form_valid(self, form):
         form.instance.university_id = self.kwargs.get('university_id')
