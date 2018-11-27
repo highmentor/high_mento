@@ -1,17 +1,6 @@
-body {
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  height: 10;
-}
+body {display: flex;align-items: center;justify-content: left;height: 10;}
 
-.box {
-  width: 200px;
-  
-  p {
-    font-size: 15px;
-  }
-}
+.box {width: 200px;}
 
 .rating {
   position: relative;
@@ -49,10 +38,6 @@ body {
     background-color: #fff;
     font-size: 20px;
     border-right: 1px solid;
-    
-    &:first-of-type {
-      // border-right: none;
-    }
   }
     
   input:hover ~ label,
