@@ -20,7 +20,7 @@ def signup(request):
         if signup_form.is_valid():
             # SignupForm의 인스턴스 메서드인 signup() 실행, 유저 생성
             signup_form.signup()
-            return redirect('post:post_list')
+            return redirect('accounts:login')
     else:
         signup_form = SignupForm()
 
