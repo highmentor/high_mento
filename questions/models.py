@@ -14,7 +14,7 @@ class Question(models.Model):
         [4,'공학'],
         [5,'의학']
     ]
-    high_major = models.IntegerField(max_length=100,choices=high_major_list )
+    high_major = models.IntegerField(choices=high_major_list )
     content = models.CharField(max_length=1000 )
     
     def __str__(self):

@@ -1,9 +1,11 @@
 <h1> 대학교 세부정보</h1>
 
+<div>  
 
-
-<div>   
-    <p>평점: {{ rating_avg }}</p>
+    <p>총 평: {{ rating_total_avg }}</p>
+    <p>취업 전망: {{ rating1_avg }}</p>
+    <p>과 분위기: {{ rating2_avg }}</p>
+    <p>복지 정보: {{ rating3_avg }}</p>
     <p>{{ university.uni_id }} </p>
     <p>{{ university.uni_intro }} </p>
     <a href="{% url 'universities:create' university_id=university.pk %}">전공평가하기</a>
@@ -14,5 +16,4 @@
         <br>
     {% endfor %}
 
-    
 </div>
