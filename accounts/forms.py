@@ -30,6 +30,13 @@ class SignupForm(forms.Form):
             }
         )
     )
+    password2 = forms.CharField(
+    widget=forms.PasswordInput(
+        attrs={
+            'class': 'form-control',
+            }
+        )
+    )
 
     # username필드의 검증에 username이 이미 사용중인지 여부 검사
     def clean_username(self):
