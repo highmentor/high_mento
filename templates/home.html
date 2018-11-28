@@ -1,134 +1,9 @@
 {% extends 'base.html'%}
 
 {% block content %}
-<div class="super_container">
 
-	<!-- Header -->
-
-	<header class="header d-flex flex-row">
-		<div class="header_content d-flex flex-row align-items-center">
-			<!-- Logo -->
-			<div class="logo_container">
-				<div class="logo">
-					<img src="images/logo.png" alt="">
-					<span>HIGH MENTOR</span>
-				</div>
-			</div>
-
-			<!-- Main Navigation -->
-			<nav class="main_nav_container">
-				<div class="main_nav">
-					<ul class="main_nav_list">
-						<li class="main_nav_item"><a href="/">Home</a></li>
-						<li class="main_nav_item"><a href="{% url 'questions:list' %}">Q&A</a></li>
-						 {% if user.is_authenticated %}
-						<li class="main_nav_item"><a href="{% url 'universities:list' %}">UNIVERSITIES</a></li>
-						<li class="main_nav_item"><a href="{% url 'majors:list' %}">MAJORS</a></li>
-						<li class="main_nav_item"><a href="{% url 'accounts:logout' %}">LogOut</a></li>
-						{% else %}
-						<li class="main_nav_item"><a href="{% url 'accounts:login'%}">LogIn</a></li>
-						<li class="main_nav_item"><a href="{% url 'accounts:signup'%}">회원가입</a></li>
-						{% endif %}
-					</ul>
-				</div>
-			</nav>
-		</div>
-		<div class="header_side d-flex flex-row justify-content-center align-items-center">
-			<img src="images/phone-call.svg" alt="">
-			<span>+43 4566 7788 2457</span>
-		</div>
-
-		<!-- Hamburger -->
-		<div class="hamburger_container">
-			<i class="fas fa-bars trans_200"></i>
-		</div>
-
-	</header>
-	
-	<!-- Menu -->
-	<div class="menu_container menu_mm">
-
-		<!-- Menu Close Button -->
-		<div class="menu_close_container">
-			<div class="menu_close"></div>
-		</div>
-
-		<!-- Menu Items -->
-		<div class="menu_inner menu_mm">
-			<div class="menu menu_mm">
-				<ul class="menu_list menu_mm">
-					<li class="menu_item menu_mm"><a href="#">Home</a></li>
-					<li class="menu_item menu_mm"><a href="#">About us</a></li>
-					<li class="menu_item menu_mm"><a href="courses.html">Courses</a></li>
-					<li class="menu_item menu_mm"><a href="elements.html">Elements</a></li>
-					<li class="menu_item menu_mm"><a href="news.html">News</a></li>
-					<li class="menu_item menu_mm"><a href="contact.html">Contact</a></li>
-				</ul>
-
-				<!-- Menu Social -->
-				
-				<div class="menu_social_container menu_mm">
-					<ul class="menu_social menu_mm">
-						<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-pinterest"></i></a></li>
-						<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-						<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-instagram"></i></a></li>
-						<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-						<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-twitter"></i></a></li>
-					</ul>
-				</div>
-
-				<div class="menu_copyright menu_mm">Colorlib All rights reserved</div>
-			</div>
-
-		</div>
-
-	</div>
-	
-	<!-- Home -->
-
-	<div class="home">
-
-		<!-- Hero Slider -->
-		<div class="hero_slider_container">
-			<div class="hero_slider owl-carousel">
-				
-				<!-- Hero Slide -->
-				<div class="hero_slide">
-					<div class="hero_slide_background" style="background-image:url(images/slider_background.jpg)"></div>
-					<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
-						<div class="hero_slide_content text-center">
-							<h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">Get your <span>Education</span> today!</h1>
-						</div>
-					</div>
-				</div>
-				
-				<!-- Hero Slide -->
-				<div class="hero_slide">
-					<div class="hero_slide_background" style="background-image:url(images/slider_background.jpg)"></div>
-					<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
-						<div class="hero_slide_content text-center">
-							<h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">Get your <span>Education</span> today!</h1>
-						</div>
-					</div>
-				</div>
-				
-				<!-- Hero Slide -->
-				<div class="hero_slide">
-					<div class="hero_slide_background" style="background-image:url(images/slider_background.jpg)"></div>
-					<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
-						<div class="hero_slide_content text-center">
-							<h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">Get your <span>Education</span> today!</h1>
-						</div>
-					</div>
-				</div>
-
-			</div>
-
-			<div class="hero_slider_left hero_slider_nav trans_200"><span class="trans_200">prev</span></div>
-			<div class="hero_slider_right hero_slider_nav trans_200"><span class="trans_200">next</span></div>
-		</div>
-
-	</div>
+<h1>홈 임니다.</h1>
+<img src="http://www.topstarnews.net/news/photo/201810/512665_175999_4026.jpg" height="420" width="420">
 
 	<div class="hero_boxes">
 		<div class="hero_boxes_inner">
@@ -139,8 +14,8 @@
 						<div class="hero_box d-flex flex-row align-items-center justify-content-start">
 							<img src="images/earth-globe.svg" class="svg" alt="">
 							<div class="hero_box_content">
-								<h2 class="hero_box_title">Online Courses</h2>
-								<a href="courses.html" class="hero_box_link">view more</a>
+								<h2 class="hero_box_title">대학 소개</h2>
+								<a href="{% url 'universities:list' %}" class="hero_box_link">view more</a>
 							</div>
 						</div>
 					</div>
@@ -149,8 +24,8 @@
 						<div class="hero_box d-flex flex-row align-items-center justify-content-start">
 							<img src="images/books.svg" class="svg" alt="">
 							<div class="hero_box_content">
-								<h2 class="hero_box_title">Our Library</h2>
-								<a href="courses.html" class="hero_box_link">view more</a>
+								<h2 class="hero_box_title">전공 소개</h2>
+								<a href="{% url 'majors:list' %}" class="hero_box_link">view more</a>
 							</div>
 						</div>
 					</div>
@@ -159,8 +34,8 @@
 						<div class="hero_box d-flex flex-row align-items-center justify-content-start">
 							<img src="images/professor.svg" class="svg" alt="">
 							<div class="hero_box_content">
-								<h2 class="hero_box_title">Our Teachers</h2>
-								<a href="teachers.html" class="hero_box_link">view more</a>
+								<h2 class="hero_box_title">멘토링</h2>
+								<a href="{% url 'questions:list' %}" class="hero_box_link">view more</a>
 							</div>
 						</div>
 					</div>
@@ -169,4 +44,7 @@
 			</div>
 		</div>
 	</div>
+
+
+
 {% endblock %}
