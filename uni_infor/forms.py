@@ -14,9 +14,11 @@ class ReviewForm(forms.ModelForm):
         (2, '2'),
         (1, '1'),
     )
-    rating = forms.ChoiceField(choices=CHOICE_RATING, widget=forms.RadioSelect())
+    rating1 = forms.ChoiceField(choices=CHOICE_RATING, widget=forms.RadioSelect())
+    rating2 = forms.ChoiceField(choices=CHOICE_RATING, widget=forms.RadioSelect())
+    rating3 = forms.ChoiceField(choices=CHOICE_RATING, widget=forms.RadioSelect())
     # 빼버리면 셀렉트바가 나오는데 widget으로 라디오버튼쓰겠다고 얘기해준다.
     
     class Meta:
         model = University_review
-        fields = ['major','content']
+        fields = ['major','content','rating1','rating2','rating3']
