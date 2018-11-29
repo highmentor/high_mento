@@ -2,7 +2,9 @@
 
 {% block content %}
     {% for major in major_list %}
-        <h1>{{major.title}}</h1>
+        <h3>{{major.major_id}}</h3>
+        <h1>{{major.major_intro}}</h1>
+        
     {% endfor %}
     <a href="{% url 'majors:create' %}">New post</a>
 {% endblock %}
