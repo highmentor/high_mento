@@ -1,8 +1,8 @@
 {%extends 'base.html'%}
 
 {%block content%}
-    <h2>{{major.major_id}}</h2>
-    <h5>{{major.major_intro}}</h5>
+    <h1>{{major.major_id}}</h1>
+    <h2>{{major.major_intro}}</h2>
     
     {%for review in major.major_review_set.all%}
         {{ review.content }} 

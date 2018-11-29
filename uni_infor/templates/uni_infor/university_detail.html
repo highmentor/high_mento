@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
-{% block cotent %}
+
+{% block content %}
+
 <h1> 대학교 세부정보</h1>
 
 <div>  
@@ -10,7 +12,9 @@
     <p>복지 정보: {{ rating3_avg }}</p>
     <p>{{ university.uni_id }} </p>
     <p>{{ university.uni_intro }} </p>
+    
     <a href="{% url 'universities:create' university_id=university.pk %}">전공평가하기</a>
+    
     <br>
     
     {%for review in university.university_review_set.all%}

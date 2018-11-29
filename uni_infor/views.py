@@ -4,6 +4,7 @@ from django.db import models
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from .forms import ReviewForm
 from django.db.models import Avg
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
@@ -33,7 +34,7 @@ class University_detail(DetailView):
             return context
         
     
-class University_create(CreateView):
+class University_create(LoginRequiredMixin,CreateView):
     model = University_review
     form_class = ReviewForm
     # fields = ['major','content']
