@@ -37,17 +37,17 @@ class SignupForm(forms.Form):
 
 # 학생/대학생 구분을 위한 라디오 버튼(수평적으로)
 
-class HorizontalRadioRenderer(forms.RadioSelect.renderer):
-  def render(self):
-    return mark_safe(u'\n'.join([u'%s\n' % w for w in self]))
+# class HorizontalRadioRenderer(forms.RadioSelect.renderer):
+#   def render(self):
+#     return mark_safe(u'\n'.join([u'%s\n' % w for w in self]))
 
 
-class ApprovalForm(forms.Form):
-    approval = forms.ChoiceField(choices=APPROVAL_CHOICES,
-                 initial=0,
-                 widget=forms.RadioSelect(renderer=HorizontalRadioRenderer),)
+# class ApprovalForm(forms.Form):
+#     approval = forms.ChoiceField(choices=APPROVAL_CHOICES,
+#                  initial=0,
+#                  widget=forms.RadioSelect(renderer=HorizontalRadioRenderer),)
  
-feature_type  = forms.TypedChoiceField(choices = formfields.FeatureType, widget = forms.RadioSelect)
+# feature_type  = forms.TypedChoiceField(choices = formfields.FeatureType, widget = forms.RadioSelect)
 
 
 
