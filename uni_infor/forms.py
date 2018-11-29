@@ -18,7 +18,13 @@ class ReviewForm(forms.ModelForm):
     rating2 = forms.ChoiceField(choices=CHOICE_RATING, widget=forms.RadioSelect())
     rating3 = forms.ChoiceField(choices=CHOICE_RATING, widget=forms.RadioSelect())
     # 빼버리면 셀렉트바가 나오는데 widget으로 라디오버튼쓰겠다고 얘기해준다.
+    major = forms.ModelChoiceField(queryset=None)
     
     class Meta:
         model = University_review
         fields = ['major','content','rating1','rating2','rating3']
+        
+    def __init__(self, *args, **kwargs):
+        university_id = kwargs.pop('university_id', None)
+        super().__init__(*args, **kwargs)
+        self.fields['major'].queryset = University.objects.get(pk=university_id).university_major_data_set.all()
