@@ -36,8 +36,6 @@
                     <ul class="list-inline social_icon">
                         <li><a href=""><span class="fa fa-facebook"></span></a></li>
                         <li><a href=""><span class="fa fa-twitter"></span></a></li>
-                        <li><a href=""><span class="fa fa-behance"></span></a></li>
-                        <li><a href=""><span class="fa fa-dribbble"></span></a></li>
                         <li><a href=""><span class="fa fa-linkedin"></span></a></li>
                         <li><a href=""><span class="fa fa-youtube"></span></a></li>
                     </ul>			
@@ -74,10 +72,15 @@
                     <div class="collapse navbar-collapse" id="navbar-menu">
                         <ul class="nav navbar-nav menu">
                             <li><a href="">Home</a></li>                    
-                            <li><a href="#about">About Us</a></li>
-                            <li><a href="#services">Services</a></li>
-                            <li><a href="#portfolio">Portfolio</a></li>
-                            <li><a href="#contact_form">Contact Us</a></li>
+                            <li><a href="{% url 'questions:list' %}">멘토와 Q&A</a></li>
+                            <li><a href="{% url 'universities:list' %}">대학 소개</a></li>
+                            <li><a href="{% url 'majors:list' %}">전공소개</a></li>
+                             {% if user.is_authenticated %}
+                            <li><a href="{% url 'accounts:logout' %}">LOGOUT</a></li>
+                            {% else %}
+                            <li><a href="{% url 'accounts:login'%}">LOGIN</a></li>
+                            <li><a href="{% url 'accounts:signup'%}">회원가입</a></li>
+                             {% endif %}
                         </ul>
                     </div>
                 </div>   
