@@ -1,10 +1,7 @@
 from django.db import models
-from django.contrib import auth
-from django import forms
 from django.contrib.auth.models import User
 
 # Create your models here.
-class UserForm(forms.ModelForm):
-    class Meta:
-        model = User
-        fields = ['username', 'email', 'password']
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    major = models.CharField(max_length=50)
