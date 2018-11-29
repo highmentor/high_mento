@@ -38,6 +38,11 @@ class University_create(CreateView):
     form_class = ReviewForm
     # fields = ['major','content']
     
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs.update({'university_id': self.kwargs.get('university_id')})
+        return kwargs
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['university'] = University.objects.get(pk=self.kwargs.get('university_id'))
