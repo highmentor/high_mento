@@ -27,7 +27,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['ximz-ethanzzzzz.c9users.io',
                  'huilim-huilim.c9users.io',
-                 'high-mentro-bicsu.c9users.io']
+                 'high-mentro-bicsu.c9users.io',
+                 'high-mentor-jackpot2.c9users.io',
+                 ]
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,8 +44,9 @@ INSTALLED_APPS = [
     'uni_infor',
     'accounts',
     'bootstrap4',
-    'majors'
+    'majors',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -123,3 +127,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,'static')        
+]
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'

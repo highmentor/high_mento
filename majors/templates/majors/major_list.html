@@ -1,5 +1,8 @@
 {% extends 'base.html'%}
 
 {% block content %}
-<h1>Major임니다</h1>
+    {% for major in major_list %}
+        <h1>{{major.title}}</h1>
+    {% endfor %}
+    <a href="{% url 'majors:create' %}">New post</a>
 {% endblock %}
