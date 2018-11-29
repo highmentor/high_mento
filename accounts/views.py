@@ -38,19 +38,3 @@ class ProfileCreate(LoginRequiredMixin,CreateView):
         self.object.save()
         
         return super().form_valid(form)
-
-# def signup(request):
-#     if request.method == 'POST':
-#         signup_form = SignupForm(request.POST)
-#         # 유효성 검증에 통과한 경우 (username의 중복과 password1, 2의 일치 여부)
-#         if signup_form.is_valid():
-#             # SignupForm의 인스턴스 메서드인 signup() 실행, 유저 생성
-#             signup_form.signup()
-#             return redirect('accounts:login')
-#     else:
-#         signup_form = SignupForm()
-
-#     context = {
-#         'signup_form': signup_form,
-#     }
-#     return render(request, 'accounts/signup.html', context)
