@@ -1,14 +1,15 @@
 from django.shortcuts import render, reverse
 from .models import Major, Major_review
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
-# Create your views here.
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 class MajorList(ListView):
     model = Major
     template_name = 'majors/major_list.html'
     
 
-class MajorCreate(CreateView):
+class MajorCreate(LoginRequiredMixin, CreateView):
     model = Major
     fields = ('major_id','major_intro')
     template_name = 'majors/major_form.html'

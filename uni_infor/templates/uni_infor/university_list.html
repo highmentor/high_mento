@@ -7,12 +7,12 @@
 <ul>
     {% for university in university_list %}
     <li>
-        
+
         <a href="{% url 'universities:detail' pk=university.pk %}"> {{ university.uni_id }} </a>
     </li>
     {% endfor %}
-    
-    
+
+
 </ul>
 
 {% endblock %}
