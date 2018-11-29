@@ -1,21 +1,53 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>제목 : {{question.title}}</h1>
-<h4>급식명 : {{question.user}}</h2>
-<h4>전공분야 : {{question.major}}</h2>
-<h2>내용 : {{question.content}}</h2>
-
-
-<form action="{% url 'questions:answer_create' question.id %}" method="post">
-    {%csrf_token%}
-    {{form.as_p}}
-    <input type="submit">    
-</form>
-
-
-{%for answer in question.answer_set.all%}
-    <h3>{{answer.title}}</h3>
-    <p>{{answer.content}}</p>
-{%endfor%}
-
+        <!-- About -->
+        <section id="about">
+            <div class="container about_bg">
+                <div class="row">
+                    <div class="col-lg-7 col-md-6">
+                        <div class="about_content">
+                            <h2>{{question.title}}</h2>
+                            <h3>{{question.user}}</h3>
+                            <p>{{question.content}}</p>
+                            <input class="btn know_btn" type="submit" value="Write a Comment">
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-lg-offset-1">
+                        <div class="about_banner">
+                            <img src="images/man.png" alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- About end -->
+<!-- Services -->
+        <section id="services">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="service_item">
+                            <form action="{% url 'questions:answer_create' question.id %}" method="post">
+                                {%csrf_token%}
+                                <h3>댓글 달기</h3>
+                                <p>ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ</p>
+                                {{form.as_p}}
+                                <input class="btn know_btn" type="submit" value="Submit">    
+                            </form>
+                            {%for answer in question.answer_set.all%}
+                                <p>ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ</p>
+                                <h3>{{answer.title}}</h3>
+                                <p>{{answer.content}}</p>
+                                
+                            {%endfor%}
+                            
+                            <!--<a href="#services" class="btn know_btn">know more</a>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- Services end -->
+<!--<h1>제목 : {{question.title}}</h1>-->
+<!--<h4>급식명 : {{question.user}}</h4>-->
+<!--<h4>전공분야 : {{question.major}}</h4>-->
+<!--<h2>내용 : {{question.content}}</h2>-->
 {% endblock %}
