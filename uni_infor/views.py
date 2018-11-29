@@ -16,12 +16,21 @@ class University_detail(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         
-        context['rating1_avg'] = round(self.get_object().university_review_set.aggregate(Avg('rating1'))['rating1__avg'],1)
-        context['rating2_avg'] = round(self.get_object().university_review_set.aggregate(Avg('rating2'))['rating2__avg'],1)
-        context['rating3_avg'] = round(self.get_object().university_review_set.aggregate(Avg('rating3'))['rating3__avg'],1)
+        if ((self.get_object().university_review_set.aggregate(Avg('rating1'))['rating1__avg'] == None) &
+            (self.get_object().university_review_set.aggregate(Avg('rating1'))['rating1__avg'] == None) &
+            (self.get_object().university_review_set.aggregate(Avg('rating1'))['rating1__avg'] == None)):
+            context['rating1_avg'] = 0
+            context['rating2_avg'] = 0
+            context['rating3_avg'] = 0
+            context['rating_total_avg'] = 0
+            return context
         
-        context['rating_total_avg'] = round((context['rating1_avg'] + context['rating2_avg'] + context['rating3_avg']) / 3.0,1)
-        return context
+        else:
+            context['rating1_avg'] = round(self.get_object().university_review_set.aggregate(Avg('rating1'))['rating1__avg'],1)
+            context['rating2_avg'] = round(self.get_object().university_review_set.aggregate(Avg('rating2'))['rating2__avg'],1)
+            context['rating3_avg'] = round(self.get_object().university_review_set.aggregate(Avg('rating3'))['rating3__avg'],1)
+            context['rating_total_avg'] = round((context['rating1_avg'] + context['rating2_avg'] + context['rating3_avg']) / 3.0,1)
+            return context
         
     
 class University_create(CreateView):
