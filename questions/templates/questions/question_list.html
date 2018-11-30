@@ -2,7 +2,7 @@
 
 {%block content%}
 <div class="container text-center testimonial_area">
-    <input class="btn know_btn" type="submit" value="질문 하기">
+    <a href="{% url 'questions:create' %}" class="btn know_btn">질문 하기</a>
     </div>
 <!--<a href="{% url 'questions:create'%}"> 글 쓰기 </a>-->
 <section id="testimonial">
