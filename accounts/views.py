@@ -15,7 +15,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 class AccountsList(ListView):
     model = User
     template_name = 'accounts/accounts_list.html'
-    
+
 class SignUp(CreateView):
     form_class = UserCreateForm
     template_name = 'accounts/sign_up.html'
