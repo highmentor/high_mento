@@ -13,9 +13,9 @@ class Question(models.Model):
         [3,'예체능'],
         [4,'공학'],
         [5,'의학']
-    ]
+                    ]
     high_major = models.IntegerField(choices=high_major_list )
-    content = models.TextField(max_length=1000 )
+    content = models.TextField(max_length=100 )
     
     def __str__(self):
         return self.title
