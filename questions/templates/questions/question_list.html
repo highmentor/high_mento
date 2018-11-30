@@ -2,13 +2,13 @@
 
 {%block content%}
 <div class="container text-center testimonial_area">
-    <a href="{% url 'questions:create' %}" class="btn know_btn">질문 하기</a>
     </div>
 <!--<a href="{% url 'questions:create'%}"> 글 쓰기 </a>-->
 <section id="testimonial">
     
             <div class="container text-center testimonial_area">
                 <h2>University Reviews</h2>
+                <a href="{% url 'questions:create' %}" class="btn know_btn">질문 하기</a>
                 <p>hi</p>
                 <div class="row">
                     <div class="col-md-6">
@@ -19,7 +19,7 @@
                                     <a href="{% url 'questions:delete' pk=question.pk %}">delete</a>
                                     <a href="{% url 'questions:edit' pk=question.pk %}">edit</a>
                             </div>
-                            <img src="images/testimonial_img1.png" alt="" />
+                            <img src="images/hi.png" alt="" />
                             <p class="worker_name"><a href="{% url 'questions:detail' pk=question.pk %}">{{question.title}}</a></p>
                         </div>
                     <!--</div>-->
