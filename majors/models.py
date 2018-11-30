@@ -9,7 +9,7 @@ class Major(models.Model):
         return reverse('majors:detail', kwargs={'pk':self.pk})  
     
     def __str__(self):
-        return self.major_id, self.major_intro 
+        return self.major_id
         
 class Major_review(models.Model):
     major = models.ForeignKey(Major,on_delete=models.CASCADE)

@@ -1,13 +1,30 @@
 {% extends 'base.html'%}
 
 {% block content %}
-    {% for major in major_list %}
-        <h5>{{major.major_id}}</h5>
-        <h7>{{major.major_intro}}</h7>
+
+<section id="services">
+        
+                <h1>Detail Reviews</h1>
+                <!--<div class="row">-->
+                <br><br>
+                {% for major in major_list %}
+                    <div class="col-md-4">
+                        <div class="service_item">
+                            <h3>{{major.major_id}}</h3>
+                            <p>{{major.major_intro}}</p>
+                            <a href="#services" class="btn know_btn">see more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+                            
+
         
     {% endfor %}
     <br>
-    <a href="{% url 'majors:create' %}">New post</a>
+    
     <!--{% if user.is_authenticated %}-->
     <!--{% endif %}-->
+    <a href="{% url 'majors:create' %}">New post</a>
 {% endblock %}
