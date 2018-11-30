@@ -2,19 +2,15 @@
 {% block content %}
         <!-- About -->
         <section id="about">
-            <div class="container about_bg">
+            <div class="container">
                 <div class="row">
                     <div class="col-lg-7 col-md-6">
                         <div class="about_content">
                             <h2>{{question.title}}</h2>
-                            <h3>{{question.user}}</h3>
+                            <h4>작성자 : {{question.user}}</h4><br>
                             <p>{{question.content}}</p>
-                            <input class="btn know_btn" type="submit" value="Write a Comment">
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-lg-offset-1">
-                        <div class="about_banner">
-                            <img src="images/man.png" alt="" />
+                            <br><br>
+                            <!--<input class="btn know_btn" type="submit" value="Write a Comment">-->
                         </div>
                     </div>
                 </div>
@@ -40,14 +36,9 @@
                                 
                             {%endfor%}
                             
-                            <!--<a href="#services" class="btn know_btn">know more</a>-->
                         </div>
                     </div>
                 </div>
             </div>
         </section><!-- Services end -->
-<!--<h1>제목 : {{question.title}}</h1>-->
-<!--<h4>급식명 : {{question.user}}</h4>-->
-<!--<h4>전공분야 : {{question.major}}</h4>-->
-<!--<h2>내용 : {{question.content}}</h2>-->
 {% endblock %}
