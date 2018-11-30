@@ -7,7 +7,7 @@ app_name = 'questions'
 
 urlpatterns = [
     path('', views.List.as_view(), name ='list'),
-    path('new/', views.Create.as_view(), name='reate'),
+    path('new/', views.Create.as_view(), name='create'),
     path('<int:pk>/', views.Detail.as_view(), name='detail'),
     path('<int:pk>/delete/', views.Delete.as_view(), name='delete'),
     path('<int:pk>/edit/', views.Update.as_view(), name='edit'),
