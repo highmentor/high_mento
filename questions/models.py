@@ -15,7 +15,7 @@ class Question(models.Model):
         [5,'의학']
     ]
     high_major = models.IntegerField(choices=high_major_list )
-    content = models.CharField(max_length=1000 )
+    content = models.TextField(max_length=1000 )
     
     def __str__(self):
         return self.title
@@ -28,7 +28,7 @@ class Answer(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1 )
     title = models.CharField(max_length=100)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    content = models.CharField(max_length=100)
+    content = models.TextField(max_length=100)
     
     def __str__(self):
         return self.content
