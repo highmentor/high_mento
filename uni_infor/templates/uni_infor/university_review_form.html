@@ -12,18 +12,23 @@
     <!--        <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>-->
     <!--        <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>-->
     <!--</div>    -->
+                        
+                        
     <div style="margin-top:20px">
         <p>
             전공: {{form.major}}    
         </p>
+                                        <p>
+                                            장점 : {{form.advantage}}  <br>  
+                                            단점 : {{form.disadvantage}}    
+                                            <br>  
+                                            개선점 : {{form.approvement}}
+                                        </p>
                 
-        <p>
-            장단점 : {{form.content}}    
-        </p>
     </div>
     <div style="margin-top:0px">
         <p>
-            <h1>취업 전망</h1>
+            <h3>취업 전망</h3>
             <div class="rating1">
             {% for star in form.rating1 %}
                 {{ star.tag }}
@@ -32,10 +37,10 @@
             </div> 
         </p>
     </div>
-    <br>
+    <br><br>
     <div style="margin-top:0px">
         <p>
-            <h1>과 분위기</h1>
+            <h3>과 분위기</h3>
             <div class="rating1">
             {% for star in form.rating2 %}
                 {{ star.tag }}
@@ -44,10 +49,10 @@
             </div> 
         </p>
     </div>
-    <br>
+    <br><br>
     <div style="margin-top:0px">
         <p>
-            <h1>복지 정보</h1>
+            <h3>복지 정보</h3>
             <div class="rating1">
             {% for star in form.rating3 %}
                 {{ star.tag }}

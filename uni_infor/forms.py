@@ -3,8 +3,9 @@ from .models import University, University_review
 
 class PostForm(forms.Form):
     title = forms.CharField()
-    content = forms.CharField(widget = forms.Textarea(attrs = {'class':'editable'}))
-    
+    advantage = forms.CharField(widget = forms.Textarea(attrs = {'class':'editable'}))
+    disadvantage = forms.CharField(widget = forms.Textarea(attrs = {'class':'editable'}))
+    approvement = forms.CharField(widget = forms.Textarea(attrs = {'class':'editable'}))
     
 class ReviewForm(forms.ModelForm):
     CHOICE_RATING = (
@@ -26,7 +27,7 @@ class ReviewForm(forms.ModelForm):
     # major = forms.ModelChoiceField(queryset=None)
     class Meta:
         model = University_review
-        fields = ['major','content','rating1','rating2','rating3']
+        fields = ['major','advantage','disadvantage','approvement','rating1','rating2','rating3']
         
     def __init__(self, *args, **kwargs):
         university_id = kwargs.pop('university_id', None)

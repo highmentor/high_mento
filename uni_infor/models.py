@@ -28,7 +28,9 @@ class University_review(models.Model):
                 ('건설', '건설'), ('산업/안전', '산업/안전'), ('재료', '재료'), ('기계','기계'), ('화공/고분자/에너지', '화공/고분자/에너지'), ('공학교육', '공학교육'), ('무용/체육', '무용/체육'), ('연극/영화', '연극/영화'), ('응용예술', '응용예술'), ('미술','미술'), ('음악', '음악'), ('의료', '의료')]
     major = models.CharField(max_length=20, choices=major_list)
     # major = models.ForeignKey(University_major_data,on_delete=models.CASCADE)
-    content = models.TextField()
+    advantage = models.TextField()
+    disadvantage = models.TextField()
+    approvement = models.TextField()
     
     def get_absolute_url(self):
         return reverse('universities:detail', kwargs={'pk':self.university.pk})

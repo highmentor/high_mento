@@ -4,9 +4,11 @@
 
 <section id="services">
         
-                <h1>Detail Reviews</h1>
-                <!--<div class="row">-->
-                <br><br>
+                <div class="container text-center testimonial_area">
+                    <h2>Major Reviews</h2>
+                    <a href="{% url 'majors:create' %} " class="btn know_btn">New post</a>
+                    
+                </div>        <br>
                 {% for major in major_list %}
                     <div class="col-md-4">
                         <div class="service_item">
@@ -17,7 +19,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+</section>
                             
 
         
@@ -26,5 +28,4 @@
     
     <!--{% if user.is_authenticated %}-->
     <!--{% endif %}-->
-    <a href="{% url 'majors:create' %}">New post</a>
 {% endblock %}

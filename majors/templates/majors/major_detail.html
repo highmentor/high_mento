@@ -1,14 +1,16 @@
 {%extends 'base.html'%}
 
 {%block content%}
-    <h1>{{major.major_id}}</h1>
-    <h2>{{major.major_intro}}</h2>
+
+ 
+    <h2>{{major.major_id}}</h2>
+    <h3>{{major.major_intro}}</h3>
     
     {%for review in major.major_review_set.all%}
-        {{ review.content }} 
+        <h3>{{ review.content }} </h3>
         <br>
     {% endfor %}
     
-    <a href="{% url 'majors:review_create' major_id=major.pk %}">리뷰하기</a>
+    <a href="{% url 'majors:review_create' major_id=major.pk %}" class="btn know_btn">리뷰하기</a>
 
 {%endblock%}
