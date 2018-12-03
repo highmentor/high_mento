@@ -1,12 +1,13 @@
 from django.db import models
 from django.conf import settings
 from django.urls import reverse
+from django import forms
 
 
 # Create your models here.
 class Question(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,default=1)
-    title = models.CharField(max_length=50)
+    title = models.CharField(max_length=1000)
     high_major_list = [
         [1,'인문사회'],
         [2,'자연과학'],
@@ -15,7 +16,7 @@ class Question(models.Model):
         [5,'의학']
     ]
     high_major = models.IntegerField(choices=high_major_list )
-    content = models.CharField(max_length=1000 )
+    content = models.TextField()
     
     def __str__(self):
         return self.title

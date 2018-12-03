@@ -14,7 +14,7 @@
                     </div>
                     <div class="col-lg-3 col-md-6 col-lg-offset-1">
                         <div class="about_banner">
-                            <img src="images/man.png" alt="" />
+                            <!--<img src="images/man.png" alt="" />-->
                         </div>
                     </div>
                 </div>
@@ -26,28 +26,27 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="service_item">
-                            <form action="{% url 'questions:answer_create' question.id %}" method="post">
-                                {%csrf_token%}
-                                <h3>댓글 달기</h3>
-                                <p>ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ</p>
-                                {{form.as_p}}
-                                <input class="btn know_btn" type="submit" value="Submit">    
-                            </form>
+                            
                             {%for answer in question.answer_set.all%}
                                 <p>ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ</p>
                                 <h3>{{answer.title}}</h3>
                                 <p>{{answer.content}}</p>
                                 
                             {%endfor%}
+                            <br><br>
+                            <form action="{% url 'questions:answer_create' question.id %}" method="post">
                             
+                                {%csrf_token%}
+                                <h3>댓글 달기</h3>
+                                <p>ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ</p>
+                                {{form.as_p}}
+                                <input class="btn know_btn" type="submit" value="Submit">    
+                            </form>
                             <!--<a href="#services" class="btn know_btn">know more</a>-->
                         </div>
                     </div>
                 </div>
             </div>
         </section><!-- Services end -->
-<!--<h1>제목 : {{question.title}}</h1>-->
-<!--<h4>급식명 : {{question.user}}</h4>-->
-<!--<h4>전공분야 : {{question.major}}</h4>-->
-<!--<h2>내용 : {{question.content}}</h2>-->
+
 {% endblock %}
