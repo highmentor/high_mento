@@ -4,7 +4,7 @@ from django.views.generic import ListView, CreateView, DetailView, UpdateView, D
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class MajorList(ListView):
+class MajorList(LoginRequiredMixin,ListView):
     model = Major
     template_name = 'majors/major_list.html'
     

@@ -10,8 +10,7 @@
     
             <div class="container text-center testimonial_area">
                 <h2>University Reviews</h2>
-                <input class="btn know_btn" type="submit" value="질문 하기">
-    
+                <a href="{% url 'questions:create' %}" class="btn know_btn">질문 하기</a>
                 <div class="row">
                     <div class="col-md-6">
                 {% for question in question_list %}
@@ -21,8 +20,8 @@
                                    
                                     <p>{{question.content}}</p><br>
                                     
-                                     <a href="{% url 'questions:delete' pk=question.pk %}">지우기</a>
-                                    <a href="{% url 'questions:edit' pk=question.pk %}">수정</a>
+                                    <!-- <a href="{% url 'questions:delete' pk=question.pk %}">지우기</a>-->
+                                    <!--<a href="{% url 'questions:edit' pk=question.pk %}">수정</a>-->
                             </a>
                             </div>
                             <img src="images/testimonial_img1.png" alt="" />
