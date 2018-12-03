@@ -23,7 +23,6 @@ class Question(models.Model):
         
 class Answer(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1 )
-    title = models.CharField(max_length=100)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     content = models.TextField(max_length=100)
     

@@ -6,11 +6,57 @@
                 <div class="row">
                     <div class="col-lg-7 col-md-6">
                         <div class="about_content">
-                            <h2>{{question.title}}</h2>
-                            <h4>작성자 : {{question.user}}</h4><br>
-                            <p>{{question.content}}</p>
+                            <!-- Square card -->
+                            <style>
+                            .demo-card-square.mdl-card {
+                              width: 500px;
+                              height: 200px;
+                            }
+                            .demo-card-square > .mdl-card__title {
+                              /*color: #fff;*/
+                              /*background:*/
+                              /*  url('../assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;*/
+                            }
+                            </style>
+                            
+                            <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                              <div class="mdl-card__title mdl-card--expand">
+                                <h2 class="mdl-card__title-text">{{question.title}}</h2>
+                              </div>
+                              <div class="mdl-card__supporting-text">
+                                작성자 : {{question.user}}
+                              </div>
+                              <div class="mdl-card__actions mdl-card--border">
+                                  <p>
+                                  {{question.content}}
+                                      
+                                  </p>
+                              </div>
+                            </div>
+                        	
+                        	
+                        	
+                            <div data-v-d3f3299a="" class="basic mb-20"><h4 data-v-d3f3299a="" class="text-truncate mb-10"><span data-v-d3f3299a="">
+                            {{question.title}} </span> 
+                            <!--<h4>작성자 : {{question.user}}</h4><br>-->
+                            </h6> <div data-v-d3f3299a="" class="body"><p data-v-d3f3299a="" class="mb-10 text-truncate">
+                                {{question.content}}</p></div></div>
+                            <h4>작성자 : {{question.user}}</h4><br> 
+                            <!--<h2>{{question.title}}</h2>-->
+                            <!--<h4>작성자 : {{question.user}}</h4><br>-->
+                            <!--<p>{{question.content}}</p>-->
 
-                            <input class="btn know_btn" type="submit" value="Write a Comment">
+                            <form action="{% url 'questions:answer_create' question.id %}" method="post">
+                            
+
+                                {%csrf_token%}
+                                <p>ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ</p>
+                                <p>댓글</p>
+                                {{form.content }}
+                                <br>
+                                <input class="btn know_btn" type="submit" value="댓글 달기">    
+                            </form>
+
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-lg-offset-1">
@@ -33,21 +79,12 @@
                         <div class="service_item">
                             
                             {%for answer in question.answer_set.all%}
+                                <div class="commentList"> 
                                 <p>ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ</p>
-                                <h3>{{answer.title}}</h3>
-                                <p>{{answer.content}}</p>
-                                
+                                <p>{{answer.content|linebreaks}}</p>
+                                </div>
                             {%endfor%}
                             <br><br>
-                            <form action="{% url 'questions:answer_create' question.id %}" method="post">
-                            
-
-                                {%csrf_token%}
-                                <h3>댓글 달기</h3>
-                                <p>ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ</p>
-                                {{form.as_p}}
-                                <input class="btn know_btn" type="submit" value="Submit">    
-                            </form>
                             <!--<a href="#services" class="btn know_btn">know more</a>-->
 
                         </div>

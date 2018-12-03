@@ -3,10 +3,12 @@ from django import forms
 from .models import Answer
 
 class AnswerForm(forms.ModelForm):
-    title = forms.CharField()
-    content = forms.CharField()
+    content = forms.CharField(widget=forms.Textarea(attrs={'cols': 50, 'rows': 5}))
     
     class Meta:
         model = Answer
-        fields = ('title','content',)
+        fields = ('content',)
+        labels = {
+        "content": "댓글"
+    }
     
