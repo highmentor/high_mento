@@ -4,7 +4,7 @@ from django.urls import reverse
 # Create your models here.
 
 class University(models.Model):
-    uni_id = models.TextField()
+    uni_id = models.CharField(max_length=100)
     uni_intro = models.TextField()
     
     def __str__(self):
@@ -12,7 +12,7 @@ class University(models.Model):
     
 class University_major_data(models.Model):
     university = models.ForeignKey(University,on_delete=models.CASCADE)
-    major = models.TextField()
+    major = models.CharField(max_length=100)
     
     # 크롤링
     def __str__(self):
