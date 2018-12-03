@@ -2,22 +2,31 @@
 
 {%block content%}
 <div class="container text-center testimonial_area">
+    <form action="{% url 'questions:create' %}">
+    <input class="btn know_btn" type="submit" value="질문 하기">
+    </form>
     </div>
+
 <section id="testimonial">
     
             <div class="container text-center testimonial_area">
                 <h2>University Reviews</h2>
-                <a href="{% url 'questions:create' %}" class="btn know_btn">질문 하기</a>
+    
                 <div class="row">
                     <div class="col-md-6">
                 {% for question in question_list %}
-                        <div class="testimonial_item">
-                            <div class="testimonial_content text-center">
-                               <p> <a href="{% url 'questions:detail' pk=question.pk %}">{{question.title}}</a> </p>
-                                    <a href="{% url 'questions:delete' pk=question.pk %}">delete</a>
+                        <a href="{% url 'questions:detail' pk=question.pk %}"><div class="testimonial_item">
+                             <div class="testimonial_content text-center">
+                                <p><h2>{{question.title}}</h2></p>
+                                   
+                                    <p>{{question.content}}</p><br>
+                                    
+                                     <a href="{% url 'questions:delete' pk=question.pk %}">delete</a>
                                     <a href="{% url 'questions:edit' pk=question.pk %}">edit</a>
+                            </a>
                             </div>
-                            <img src="images/hi.png" alt="" />
+                            <img src="images/testimonial_img1.png" alt="" />
+                            <p class="worker_name"><a href="{% url 'questions:detail' pk=question.pk %}"></a>detail</p>
                         </div>
                 {% endfor%}
                 </div>
