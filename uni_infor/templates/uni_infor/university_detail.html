@@ -1,25 +1,54 @@
 {% extends 'base.html' %}
 {% block content %}
-
-<h1> 대학교 세부정보</h1>
+        <!-- About -->
+        <section id="about">
+            <div class="container about_bg">
+                <div class="row">
+                    <div class="col-lg-7 col-md-6">
+                        <div class="about_content">
+                            <h2>대학교 세부정보</h2>
+                            <p>총 평: {{ rating_total_avg }}</p>
+                            <p>취업 전망: {{ rating1_avg }}</p>
+                            <p>과 분위기: {{ rating2_avg }}</p>
+                            <p>복지 정보: {{ rating3_avg }}</p>
+                            <p>{{ university.uni_id }} </p>
+                            <p>{{ university.uni_intro }} </p>
+                                
+                            {%for review in university.university_review_set.all%}
+                                <br>
+                                <h3>{{ review.major }}</h3>
+                                <h3></h3>{{ review.content}}</h3>
+                            {% endfor %}
+                            <br>
+                            <a href="{% url 'universities:create' university_id=university.pk %}" class="btn know_btn">전공평가하기</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-lg-offset-1">
+                        <div class="about_banner">
+                            <img src="images/man.png" alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 <div>  
 
-    <p>총 평: {{ rating_total_avg }}</p>
-    <p>취업 전망: {{ rating1_avg }}</p>
-    <p>과 분위기: {{ rating2_avg }}</p>
-    <p>복지 정보: {{ rating3_avg }}</p>
-    <p>{{ university.uni_id }} </p>
-    <p>{{ university.uni_intro }} </p>
+    <!--<p>총 평: {{ rating_total_avg }}</p>-->
+    <!--<p>취업 전망: {{ rating1_avg }}</p>-->
+    <!--<p>과 분위기: {{ rating2_avg }}</p>-->
+    <!--<p>복지 정보: {{ rating3_avg }}</p>-->
+    <!--<p>{{ university.uni_id }} </p>-->
+    <!--<p>{{ university.uni_intro }} </p>-->
     
-    <a href="{% url 'universities:create' university_id=university.pk %}">전공평가하기</a>
+    <!--<a href="{% url 'universities:create' university_id=university.pk %}">전공평가하기</a>-->
     
-    <br>
+    <!--<br>-->
     
-    {%for review in university.university_review_set.all%}
-        {{ review.content}} 
-        <br>
-    {% endfor %}
+    <!--{%for review in university.university_review_set.all%}-->
+    <!--    {{ review.content}} -->
+    <!--    <br>-->
+    <!--{% endfor %}-->
 
 </div>
 
