@@ -30,7 +30,7 @@ class SignUp(CreateView):
 
 class ProfileCreate(LoginRequiredMixin,CreateView):
     model = Profile
-    fields = ['major',]
+    fields = ['major','real_major']
     
     def form_valid(self,form):
         self.object = form.save(commit=False)

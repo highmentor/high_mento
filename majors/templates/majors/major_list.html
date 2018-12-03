@@ -12,7 +12,7 @@
                         <div class="service_item">
                             <h3>{{major.major_id}}</h3>
                             <p>{{major.major_intro}}</p>
-                            <a href="" class="btn know_btn">see more</a>
+                            <a href="{% url 'majors:detail' pk=major.pk %}" class="btn know_btn">see more</a>
                         </div>
                     </div>
                 </div>
