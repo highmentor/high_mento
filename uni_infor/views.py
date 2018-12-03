@@ -41,15 +41,19 @@ class University_create(LoginRequiredMixin,CreateView):
     # fields = ['major','content']
     
     def get_form_kwargs(self):
+        print(self.request)
         kwargs = super().get_form_kwargs()
         kwargs.update({'university_id': self.kwargs.get('university_id')})
         return kwargs
     
     def get_context_data(self, **kwargs):
+        print(self.request)
         context = super().get_context_data(**kwargs)
         context['university'] = University.objects.get(pk=self.kwargs.get('university_id'))
         return context
     
     def form_valid(self, form):
+        
+        print(self.request)
         form.instance.university_id = self.kwargs.get('university_id')
         return super().form_valid(form)

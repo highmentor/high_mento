@@ -11,7 +11,7 @@ class MajorList(LoginRequiredMixin,ListView):
 
 class MajorCreate(LoginRequiredMixin, CreateView):
     model = Major
-    fields = ('major_id','major_intro')
+    fields = ('major_id','major_introduction')
     template_name = 'majors/major_form.html'
     
 class MajorDetailView(DetailView):

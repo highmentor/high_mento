@@ -30,7 +30,7 @@ class University_review(models.Model):
     # major = models.ForeignKey(University_major_data,on_delete=models.CASCADE)
     advantage = models.TextField()
     disadvantage = models.TextField()
-    approvement = models.TextField()
+    # approvement = models.TextField()
     
     def get_absolute_url(self):
         return reverse('universities:detail', kwargs={'pk':self.university.pk})

@@ -3,11 +3,11 @@
 {%block content%}
 
  
-    <h2>{{major.major_id}}</h2>
-    <h3>{{major.major_intro}}</h3>
+    <h2>제목 : {{major.major_id}}</h2>
+    <h4>내용 : {{major.major_introduction}}</h4>
     
     {%for review in major.major_review_set.all%}
-        <h3>{{ review.content }} </h3>
+        <h3>댓글 : {{ review.content }} </h3>
         <br>
     {% endfor %}
     

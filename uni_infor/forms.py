@@ -5,7 +5,7 @@ class PostForm(forms.Form):
     title = forms.CharField()
     advantage = forms.CharField(widget = forms.Textarea(attrs = {'class':'editable'}))
     disadvantage = forms.CharField(widget = forms.Textarea(attrs = {'class':'editable'}))
-    approvement = forms.CharField(widget = forms.Textarea(attrs = {'class':'editable'}))
+    # approvement = forms.CharField(widget = forms.Textarea(attrs = {'class':'editable'}))
     
 class ReviewForm(forms.ModelForm):
     CHOICE_RATING = (
@@ -23,11 +23,13 @@ class ReviewForm(forms.ModelForm):
                 ('생활과학', '생활과학'), ('수학/물리/천문/지구', '수학/물리/천문/지구'), ('간호', '간호'), ('sanitation', '보건'), ('약학', '약학'), ('의료예과', '의료예과'), ('교육','교육'), ('전기/전자/컴퓨터','전기/전자/컴퓨터'),
                 ('건설', '건설'), ('산업/안전', '산업/안전'), ('재료', '재료'), ('기계','기계'), ('화공/고분자/에너지', '화공/고분자/에너지'), ('공학교육', '공학교육'), ('무용/체육', '무용/체육'), ('연극/영화', '연극/영화'), ('응용예술', '응용예술'), ('미술','미술'), ('음악', '음악'), ('의료', '의료')]
     major = forms.ChoiceField(choices=major_arr)
+    # advantage = forms.CharField()
+    # disadvantage = forms.CharField()
     # major = models.CharField(max_length=20, choices=major_list)
     # major = forms.ModelChoiceField(queryset=None)
     class Meta:
         model = University_review
-        fields = ['major','advantage','disadvantage','approvement','rating1','rating2','rating3']
+        fields = ['major','advantage','disadvantage','rating1','rating2','rating3']
         
     def __init__(self, *args, **kwargs):
         university_id = kwargs.pop('university_id', None)
