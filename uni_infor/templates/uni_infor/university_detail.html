@@ -1,26 +1,53 @@
 {% extends 'base.html' %}
 {% block content %}
+        <section id="about">
+            <div class="container about_bg">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="about_content">
+                            <h2>대학교 세부정보</h2>
+                            <p>총 평: {{ rating_total_avg }}</p>
+                            <p>취업 전망: {{ rating1_avg }}</p>
+                            <p>과 분위기: {{ rating2_avg }}</p>
+                            <p>복지 정보: {{ rating3_avg }}</p>
+                            ------------------------------------------------------------
+                            <!--<p><h3>{{ university.uni_id }} </h3></p>-->
+                            <p><h3>{{ university.uni_intro }}</h3> </p>
+                                
+                            {%for review in university.university_review_set.all%}
+                                <br>
+                                <h3>{{ review.major }}학과</h3>
+                                <h4>장점 : {{ review.advantage}}</h4>
+                                <h4>단점 : {{ review.disadvantage}}</h4>
+                            {% endfor %}
+                            <br>
+                            <a href="{% url 'universities:create' university_id=university.pk %}" class="btn know_btn">전공평가하기</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-lg-offset-1">
+                        <div class="about_banner">
+                            <img src="images/man.png" alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<h1> 대학교 세부정보</h1>
 
-<div>  
-
-    <p>총 평: {{ rating_total_avg }}</p>
-    <p>취업 전망: {{ rating1_avg }}</p>
-    <p>과 분위기: {{ rating2_avg }}</p>
-    <p>복지 정보: {{ rating3_avg }}</p>
-    <p>{{ university.uni_id }} </p>
-    <p>{{ university.uni_intro }} </p>
+    <!--<p>총 평: {{ rating_total_avg }}</p>-->
+    <!--<p>취업 전망: {{ rating1_avg }}</p>-->
+    <!--<p>과 분위기: {{ rating2_avg }}</p>-->
+    <!--<p>복지 정보: {{ rating3_avg }}</p>-->
+    <!--<p>{{ university.uni_id }} </p>-->
+    <!--<p>{{ university.uni_intro }} </p>-->
     
-    <a href="{% url 'universities:create' university_id=university.pk %}">전공평가하기</a>
+    <!--<a href="{% url 'universities:create' university_id=university.pk %}">전공평가하기</a>-->
     
-    <br>
+    <!--<br>-->
     
-    {%for review in university.university_review_set.all%}
-        {{ review.content}} 
-        <br>
-    {% endfor %}
-
-</div>
+    <!--{%for review in university.university_review_set.all%}-->
+    <!--    {{ review.content}} -->
+    <!--    <br>-->
+    <!--{% endfor %}-->
 
 {% endblock %}

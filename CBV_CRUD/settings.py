@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'accounts',
     'bootstrap4',
     'majors',
+    'crispy_forms'
 ]
 
 
@@ -134,3 +135,4 @@ STATICFILES_DIRS = [
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

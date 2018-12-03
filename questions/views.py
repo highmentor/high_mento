@@ -7,6 +7,8 @@ from .models import Question, Answer
 from django.urls import reverse_lazy
 
 from .forms import AnswerForm
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 # Create your views here.
 
@@ -14,21 +16,21 @@ def index(request):
     
     return render(request,'questions/base.html')
     
-class Create(CreateView):
+class Create(LoginRequiredMixin,CreateView):
     model = Question
-    fields=('title','high_major','content')
+    fields=('title','major','content')
     
-class List(ListView):
+class List(LoginRequiredMixin ,ListView):
     model = Question
     template_name = 'questions/question_list.html'
     
-class Delete(DeleteView):
+class Delete(LoginRequiredMixin, DeleteView):
     model = Question
     success_url = reverse_lazy('questions:list')
     
-class Update(UpdateView):
+class Update(LoginRequiredMixin, UpdateView):
     model = Question
-    fields=('title','high_major','content',)
+    fields=('title','major','content',)
     
 class Detail(DetailView):
     model = Question
@@ -39,7 +41,7 @@ class Detail(DetailView):
         context['form'] = AnswerForm()
         return context
     
-class Answer_Create(CreateView):
+class Answer_Create(LoginRequiredMixin,CreateView):
     model = Answer
     fields=('title','content')
     
@@ -52,10 +54,10 @@ class Answer_Create(CreateView):
         
         return super().form_valid(form)
         
-class Answer_Update(UpdateView):
+class Answer_Update(LoginRequiredMixin,UpdateView):
     model = Answer
     fields=('title','content',)
 
-class Answer_Delete(DeleteView):
+class Answer_Delete(LoginRequiredMixin,DeleteView):
     model = Answer
     success_url = reverse_lazy('question:list')

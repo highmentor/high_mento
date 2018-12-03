@@ -3,7 +3,7 @@ from django.shortcuts import render, reverse
 # Create your models here.
 class Major(models.Model):
     major_id = models.TextField(max_length=100)
-    major_intro = models.TextField(max_length=100)
+    major_introduction = models.TextField(max_length=100)
     
     def get_absolute_url(self):
         return reverse('majors:detail', kwargs={'pk':self.pk})  

@@ -3,7 +3,6 @@
 {%block content%}
 <div class="container text-center testimonial_area">
     <form action="{% url 'questions:create' %}">
-    <input class="btn know_btn" type="submit" value="질문 하기">
     </form>
     </div>
 
@@ -11,23 +10,25 @@
     
             <div class="container text-center testimonial_area">
                 <h2>University Reviews</h2>
-    
+                <a href="{% url 'questions:create' %}" class="btn know_btn">질문 하기</a>
                 <div class="row">
-                    <div class="col-md-6">
                 {% for question in question_list %}
-                        <a href="{% url 'questions:detail' pk=question.pk %}"><div class="testimonial_item">
-                             <div class="testimonial_content text-center">
-                                <p><h2>{{question.title}}</h2></p>
+                    <div class="col-md-6">
+                        <a href="{% url 'questions:detail' pk=question.pk %}">
+                            <div class="testimonial_item">
+                                <div class="testimonial_content text-center">
+                                    <p><h2>{{question.title}}</h2></p>
                                    
                                     <p>{{question.content}}</p><br>
                                     
-                                     <a href="{% url 'questions:delete' pk=question.pk %}">delete</a>
-                                    <a href="{% url 'questions:edit' pk=question.pk %}">edit</a>
-                            </a>
-                            </div>
+                                    <!-- <a href="{% url 'questions:delete' pk=question.pk %}">지우기</a>-->
+                                    <!--<a href="{% url 'questions:edit' pk=question.pk %}">수정</a>-->
+                                </div>
+                        </a>
                             <img src="images/testimonial_img1.png" alt="" />
-                            <p class="worker_name"><a href="{% url 'questions:detail' pk=question.pk %}"></a>detail</p>
-                        </div>
+                            <p class="worker_name"><a href="{% url 'questions:detail' pk=question.pk %}"></a></p>
+                            </div>
+                    </div>
                 {% endfor%}
                 </div>
             </div>

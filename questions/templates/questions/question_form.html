@@ -1,11 +1,11 @@
 {%extends 'base.html'%}
 {% load bootstrap4 %}
-
+{% load crispy_forms_tags %}
 {% block content %}
-<form  method='POST'>
-    
+<form  method='POST' novalidate>
+    <h2>질문 하기</h2>
     {% csrf_token %}
-    {{form.as_p}}
+    {{form|crispy}}
     <input type="submit" value="Submit"/>
 </form>
 
