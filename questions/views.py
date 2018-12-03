@@ -43,7 +43,7 @@ class Detail(DetailView):
     
 class Answer_Create(LoginRequiredMixin,CreateView):
     model = Answer
-    fields=('title','content')
+    fields=('content',)
     
     def form_valid(self,form):
         self.object = form.save(commit=False)
