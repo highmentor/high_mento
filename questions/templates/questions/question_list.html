@@ -28,34 +28,9 @@
                             <img src="images/testimonial_img1.png" alt="" />
                             <p class="worker_name"><a href="{% url 'questions:detail' pk=question.pk %}"></a>detail</p>
                         </div>
-                    <!--</div>-->
-                    <!--<div class="col-md-12">-->
-                    <!--    <div class="testimonial_item">-->
-                    <!--        <div class="testimonial_content">-->
-                    <!--            <p>{{question.content}}</p>-->
-                    <!--        </div>-->
-                    <!--        <img src="images/testimonial_img2.png" alt="" />-->
-                    <!--        <p class="worker_name">{{question.title}}</p>-->
-                    <!--    </div>-->
-                    <!--</div>-->
-                    <!--<div class="col-md-12">-->
-                    <!--    <div class="testimonial_item">-->
-                    <!--        <div class="testimonial_content">-->
-                    <!--            <p>{{question.content}}</p>-->
-                    <!--        </div>-->
-                    <!--        <img src="images/testimonial_img1.png" alt="" />-->
-                    <!--        <p class="worker_name">{{question.title}}</p>-->
-                    <!--    </div>-->
-                    <!--</div>-->
                 {% endfor%}
                 </div>
             </div>
         </section><!-- Testimonial end -->
         
-    <!--{% for question in question_list %}-->
-    <!--<h1>{{question.title}}</h1>-->
-    <!--<a href="{% url 'questions:detail' pk=question.pk %}">detail</a>-->
-    <!--<a href="{% url 'questions:delete' pk=question.pk %}">delete</a>-->
-    <!--<a href="{% url 'questions:edit' pk=question.pk %}">edit</a>-->
-    <!--{% endfor%}-->
 {% endblock %}
